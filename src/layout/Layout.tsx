@@ -12,7 +12,6 @@ export function Layout({ children }: LayoutProps) {
   return (
     <div className="layout">
       <Header />
-      <span>{children}</span>
     </div>
   );
 }
