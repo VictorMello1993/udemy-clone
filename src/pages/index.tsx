@@ -1,11 +1,10 @@
-import React from 'react';
+import React from "react";
+import { Layout } from "../layout/Layout";
 
-const AppStyle = {
-  backgroundColor : "red"
-}
-
-export default function App (){
-  return <div style={AppStyle}>
-      teste
+export default function App() {
+  return (
+    <div>
+      <Layout>{"Olá mundo"}</Layout>
     </div>
+  );
 }
