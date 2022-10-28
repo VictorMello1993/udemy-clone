@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { SearchBar } from "../components/SearchBar";
+import { ToolBar } from "../components/ToolBar";
 import { UdemyLogo } from "../components/UdemyLogo";
 
 export function Header() {
@@ -14,7 +15,9 @@ export function Header() {
           <div className="row">
             <SearchBar />
           </div>
-          <div className="row">ToolBar</div>
+          <div className="row">
+            <ToolBar />
+          </div>
         </HeaderAppContent>
       </HeaderApp>
     </>
