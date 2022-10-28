@@ -34,6 +34,10 @@ const ToolBarItems = styled.div`
     color: #000;
   }
 
+  a:hover {
+    color: #5624d0;
+  }
+
   .item {
     display: flex;
     align-items: center;
