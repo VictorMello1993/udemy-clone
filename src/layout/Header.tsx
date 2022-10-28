@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { SearchBar } from "../components/SearchBar";
 import { UdemyLogo } from "../components/UdemyLogo";
 
 export function Header() {
@@ -7,11 +8,12 @@ export function Header() {
     <>
       <HeaderApp>
         <HeaderAppContent>
-          teste
           <div className="row">
             <UdemyLogo height="34px" />
           </div>
-          <div className="row">SearchBar</div>
+          <div className="row">
+            <SearchBar />
+          </div>
           <div className="row">ToolBar</div>
         </HeaderAppContent>
       </HeaderApp>
@@ -21,11 +23,16 @@ export function Header() {
 
 const HeaderApp = styled.header`
   background-color: #fff;
-  max-width: 1039px;
-  margin: auto;
   border-bottom: 1px solid #ccc;
 `;
 
 const HeaderAppContent = styled.div`
-  background-color: red;
+  display: flex;
+  align-items: center;
+  height: 74px;
+  padding: 0 24px;
+
+  .row {
+    flex: 1;
+  }
 `;
