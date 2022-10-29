@@ -28,7 +28,6 @@ export function Banner() {
 const BannerElement = styled.div`
   .image-container {
     height: 400px;
-    width: 89%;
     margin: 0 auto;
   }
 
@@ -40,5 +39,9 @@ const BannerElement = styled.div`
     padding: 24px;
     position: absolute;
     inset: 110px 110px;
+  }
+
+  img {
+    width: 100%;
   }
 `;
