@@ -29,19 +29,37 @@ const BannerElement = styled.div`
   .image-container {
     height: 400px;
     margin: 0 auto;
+    width: 89%;
   }
 
   .banner-description {
     background-color: #fff;
-    width: 440px;
-    height: 203.2px;
+    max-width: 440px;
+    height: 150px;
     margin: 24px 48px;
     padding: 24px;
     position: absolute;
     inset: 110px 110px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 8%);
   }
 
   img {
     width: 100%;
+  }
+
+  h1 {
+    font-family: SuisseWorks, Georgia, Times, times new roman, serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+  }
+
+  p {
+    line-height: 22.4px;
+    font-size: 16px;
+    font-family: udemy sans, sf pro text, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial,
+      sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
   }
 `;
