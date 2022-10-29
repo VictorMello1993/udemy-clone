@@ -1,10 +1,15 @@
 import React from "react";
 
-export function Card() {
+export interface CardProps {
+  src: string;
+  description: string;
+}
+
+export function Card({ src, description }: CardProps) {
   return (
     <div>
       <div className="course-image">
-        <img src="https://img-c.udemycdn.com/course/240x135/1701388_0134.jpg" alt="Curso Java" />
+        <img src={src} alt={description} />
       </div>
       <div className="course-info">
         <h3>Java COMPLETO Programação Orientada a Objetos +Projetos</h3>
