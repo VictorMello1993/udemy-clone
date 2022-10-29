@@ -3,15 +3,13 @@ import "./styles.css";
 
 import React from "react";
 import { Header } from "./Header";
+import { MainContent } from "./MainContent";
 
-export interface LayoutProps {
-  children: React.ReactNode;
-}
-
-export function Layout({ children }: LayoutProps) {
+export function Layout() {
   return (
     <div className="layout">
       <Header />
+      <MainContent />
     </div>
   );
 }
