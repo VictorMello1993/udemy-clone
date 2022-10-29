@@ -28,7 +28,7 @@ export function Banner() {
 const BannerElement = styled.div`
   .image-container {
     height: 400px;
-    width: 90%;
+    width: 89%;
     margin: 0 auto;
   }
 
