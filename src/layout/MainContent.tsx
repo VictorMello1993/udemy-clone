@@ -55,7 +55,7 @@ const MainContentElement = styled.main`
 
 const CoursesContainer = styled.div`
   margin: 48px auto;
-  width: 79%;
+  width: 100%;
   height: 337px;
 `;
 
