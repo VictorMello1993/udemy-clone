@@ -1,26 +1,44 @@
 import React from "react";
+import styled from "styled-components";
 
 export interface CardProps {
   src: string;
   description: string;
+  instructorName: string;
+  ratingClassification: string;
+  totalRate: number;
+  price: number;
 }
 
-export function Card({ src, description }: CardProps) {
+export function Card({ src, description, instructorName, ratingClassification, totalRate, price }: CardProps) {
   return (
-    <div>
-      <div className="course-image">
-        <img src={src} alt={description} />
-      </div>
-      <div className="course-info">
-        <h3>Java COMPLETO Programação Orientada a Objetos +Projetos</h3>
-        <div className="instructor">Nélio Alves</div>
-        <div className="rating">
-          <span className="rating-classification">4,8</span>
-          <span className="rating-star"></span>
-          <span className="total-reviews">36759</span>
+    <CardElement>
+      <a href="/">
+        <div className="course-image">
+          <img src={src} alt={description} />
         </div>
-        <div className="price">R$189,00</div>
-      </div>
-    </div>
+        <div className="course-info">
+          <h3>{description}</h3>
+          <div className="instructor">{instructorName}</div>
+          <div className="rating">
+            <span className="rating-classification">{ratingClassification}</span>
+            <span className="rating-star"></span>
+            <span className="total-reviews">{totalRate}</span>
+          </div>
+          <div className="price">R${price}</div>
+        </div>
+      </a>
+    </CardElement>
   );
 }
+
+const CardElement = styled.div`
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    opacity: 0.8;
+    transition: opacity linear 100ms;
+  }
+`;
