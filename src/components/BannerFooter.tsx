@@ -23,7 +23,7 @@ export function BannerFooter() {
 
 const BannerFooterElement = styled.div`
   padding: 12px 48px;
-  border-bottom: solid 1px #fff;
+  border-bottom: solid 1px #3e4143;
 
   .teacher-section-description {
     display: flex;

@@ -34,7 +34,7 @@ const NoticeFooterElement = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: solid 1px #fff;
+  border-bottom: solid 1px #3e4143;
 
   .notice-text {
     width: 730px;
