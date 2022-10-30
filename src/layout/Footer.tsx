@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { BannerFooter } from "../components/BannerFooter";
+import { CopyrightFooter } from "../components/CopyrightFooter";
 import { NoticeFooter } from "../components/NoticeFooter";
 
 export function Footer() {
@@ -8,6 +9,7 @@ export function Footer() {
     <FooterElement>
       <BannerFooter />
       <NoticeFooter />
+      <CopyrightFooter />
     </FooterElement>
   );
 }
@@ -15,5 +17,5 @@ export function Footer() {
 const FooterElement = styled.footer`
   background-color: #1c1d1f;
   color: #fff;
-  height: 474px;
+  height: 220px;
 `;

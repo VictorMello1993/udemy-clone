@@ -9,7 +9,7 @@ export function Header() {
     <HeaderApp>
       <HeaderAppContent>
         <div className="row">
-          <UdemyLogo height="34px" />
+          <UdemyLogo height="34px" fill="#000" />
         </div>
         <div className="row">
           <SearchBar />
