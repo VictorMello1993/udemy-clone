@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { BannerFooter } from "../components/BannerFooter";
+import { NoticeFooter } from "../components/NoticeFooter";
 
 export function Footer() {
   return (
     <FooterElement>
       <BannerFooter />
+      <NoticeFooter />
     </FooterElement>
   );
 }
