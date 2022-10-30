@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-export function Banner() {
+export function BannerMainContent() {
   return (
     <BannerElement>
       <div className="image-container">

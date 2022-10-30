@@ -1,12 +1,17 @@
 import React from "react";
 import styled from "styled-components";
+import { BannerFooter } from "../components/BannerFooter";
 
 export function Footer() {
-  return <FooterElement>Footer</FooterElement>;
+  return (
+    <FooterElement>
+      <BannerFooter />
+    </FooterElement>
+  );
 }
 
 const FooterElement = styled.footer`
-  background-color: #000;
+  background-color: #1c1d1f;
   color: #fff;
-  height: 200px;
+  height: 474px;
 `;

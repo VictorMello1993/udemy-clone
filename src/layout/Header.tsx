@@ -6,21 +6,19 @@ import { UdemyLogo } from "../components/UdemyLogo";
 
 export function Header() {
   return (
-    <>
-      <HeaderApp>
-        <HeaderAppContent>
-          <div className="row">
-            <UdemyLogo height="34px" />
-          </div>
-          <div className="row">
-            <SearchBar />
-          </div>
-          <div className="row">
-            <ToolBar />
-          </div>
-        </HeaderAppContent>
-      </HeaderApp>
-    </>
+    <HeaderApp>
+      <HeaderAppContent>
+        <div className="row">
+          <UdemyLogo height="34px" />
+        </div>
+        <div className="row">
+          <SearchBar />
+        </div>
+        <div className="row">
+          <ToolBar />
+        </div>
+      </HeaderAppContent>
+    </HeaderApp>
   );
 }
 
