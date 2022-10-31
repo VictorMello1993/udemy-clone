@@ -61,12 +61,12 @@ const BannerElement = styled.div`
       sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
   }
 
-  @media (min-width: 500px) {
+  @media (min-width: 500px) and (max-width: 650px) {
     .banner-description {
       left: 5px;
       top: 65px;
       height: 225px;
-      width: 150px;
+      max-width: 150px;
 
       h1 {
         font-size: 24px;
@@ -79,6 +79,32 @@ const BannerElement = styled.div`
 
     img {
       height: 300px;
+    }
+  }
+
+  @media (min-width: 650px) and (max-width: 1530px) {
+    .image-container {
+      height: 290px;
+    }
+
+    .banner-description {
+      height: 201px;
+      top: 65px;
+      left: 40px;
+      max-width: 220px;
+    }
+
+    img {
+      height: 274px;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 14px;
     }
   }
 `;

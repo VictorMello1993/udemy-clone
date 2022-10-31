@@ -7,7 +7,7 @@ export function CopyrightFooter() {
     <CopyrightFooterElement>
       <UdemyLogo height="34px" fill="#fff" />
       <div className="copyright-description">
-        <span>© 2022 Udemy, Inc.</span>
+        <span>© 2022 Udemy, Inc. por Victor Mello</span>
       </div>
     </CopyrightFooterElement>
   );
