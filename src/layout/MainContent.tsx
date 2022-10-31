@@ -125,6 +125,10 @@ export function MainContent() {
 
 const MainContentElement = styled.main`
   margin-bottom: 50px;
+
+  @media (min-width: 530px) {
+    width: 100%;
+  }
 `;
 
 const CoursesContainer = styled.div`

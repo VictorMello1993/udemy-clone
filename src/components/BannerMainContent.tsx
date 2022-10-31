@@ -60,4 +60,25 @@ const BannerElement = styled.div`
     font-family: udemy sans, sf pro text, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial,
       sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
   }
+
+  @media (min-width: 500px) {
+    .banner-description {
+      left: 5px;
+      top: 65px;
+      height: 225px;
+      width: 150px;
+
+      h1 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 12px;
+      }
+    }
+
+    img {
+      height: 300px;
+    }
+  }
 `;
