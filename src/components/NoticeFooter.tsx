@@ -50,7 +50,7 @@ const NoticeFooterElement = styled.div`
 
   .notice-logos {
     width: 700px;
-    height: 68px;
+    /* height: 68px; */
   }
 
   img {

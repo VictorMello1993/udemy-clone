@@ -17,5 +17,21 @@ export function Footer() {
 const FooterElement = styled.footer`
   background-color: #1c1d1f;
   color: #fff;
-  height: 220px;
+  /* height: 220px; */
+
+  /* @media (min-width: 500px) and (max-width: 860px) {
+    height: 71vh;
+  } */
+
+  /* @media (min-width: 750px) {
+    height: 100vh;
+  } */
+
+  @media (min-width: 424px) {
+    width: 100vw;
+    span {
+      line-height: 35px;
+      font-size: 14px;
+    }
+  }
 `;

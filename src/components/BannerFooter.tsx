@@ -58,8 +58,8 @@ const BannerFooterElement = styled.div`
   }
 
   .teacher-section-button {
-    width: 153px;
-    height: 48px;
+    /* width: 153px;
+    height: 48px; */
     border: 1px solid #fff;
     display: flex;
     align-items: center;
@@ -70,4 +70,24 @@ const BannerFooterElement = styled.div`
   .teacher-section-button:hover {
     background-color: #2b2e2f;
   }
+
+  @media (min-width: 424px) {
+    .teacher-section-button {
+      width: 210px;
+    }
+    .teach-at-udemy {
+      line-height: 35px;
+      font-size: 14px;
+    }
+  }
+
+  /* @media (min-width: 820px) {
+    .teacher-section-button {
+      width: 210px;
+    }
+    .teach-at-udemy {
+      width: 153px;
+      height: 48px;
+    }
+  } */
 `;
