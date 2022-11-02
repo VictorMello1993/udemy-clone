@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { BannerMainContent } from "../components/BannerMainContent";
 import { Card } from "../components/Card";
+import { ContactForm } from "../components/ContactForm";
 
 export function MainContent() {
   return (
@@ -119,6 +120,7 @@ export function MainContent() {
           </div>
         </CourseItem>
       </CoursesContainer>
+      <ContactForm />
     </MainContentElement>
   );
 }
