@@ -7,14 +7,30 @@ export function ContactForm() {
       <h2 className="form-title">Entre em contato conosco</h2>
       <form action="https://webhook.site/24aa5305-ca8e-4647-9afb-70777a8a31a1" method="POST" className="contact-form">
         <div className="row">
-          <input type="text" name="fullname" placeholder="Nome" id="fullname" className="field" />
+          <input type="text" name="fullname" placeholder="Nome" id="fullname" className="field" required />
         </div>
         <div className="row">
-          <input type="email" name="email" placeholder="E-mail" id="email" className="field" />
-          <input type="tel" name="phone-number" placeholder="Telefone" id="phone-number" className="field" />
+          <input type="email" name="email" placeholder="E-mail" id="email" className="field" required />
+          <input
+            type="tel"
+            name="phone-number"
+            placeholder="Telefone"
+            id="phone-number"
+            className="field"
+            pattern="\([0-9]{2}\) 9?[0-9]{4}-[0-9]{4}"
+          />
         </div>
         <div className="row">
-          <textarea name="message" id="message" className="field" placeholder="Mensagem" />
+          <textarea
+            name="message"
+            id="message"
+            className="field"
+            placeholder="Mensagem"
+            required
+            rows={3}
+            minLength={2}
+            maxLength={256}
+          />
         </div>
         <div className="row">
           <button type="submit" className="submit-button">
@@ -70,6 +86,10 @@ const ContactFormContainer = styled.div`
   .submit-button:hover {
     opacity: 0.8;
     cursor: pointer;
+  }
+
+  #message {
+    resize: none;
   }
 
   /* Mobile */
