@@ -6,6 +6,14 @@ export function CopyrightFooter() {
   return (
     <CopyrightFooterElement>
       <UdemyLogo height="34px" fill="#fff" />
+      <div className="footer-links">
+        <a href="/">
+          <span>Home</span>
+        </a>
+        <a href="/">
+          <span>Contato</span>
+        </a>
+      </div>
       <div className="copyright-description">
         <span>© 2022 Udemy, Inc. por Victor Mello</span>
       </div>
@@ -18,4 +26,19 @@ const CopyrightFooterElement = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  .footer-links a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .footer-links > a {
+    margin-right: 15px;
+  }
+
+  @media (min-width: 500px) and (max-width: 800px) {
+    .copyright-description {
+      width: 25vw;
+    }
+  }
 `;
