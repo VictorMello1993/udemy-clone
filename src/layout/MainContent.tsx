@@ -144,6 +144,8 @@ const CourseItem = styled.div`
   .course-item-wrapper {
     margin: 48px auto;
     width: 85%;
+    font-family: udemy sans, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif,
+      apple color emoji, segoe ui emoji, segoe ui symbol;
   }
 
   .title {

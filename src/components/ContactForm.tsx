@@ -71,28 +71,33 @@ export function ContactForm() {
   const isFormValid = !validName && !validEmail && !validPhoneNumber && !validMessage;
 
   async function submitForm(event: any) {
-    event.preventDefault();
+    try {
+      event.preventDefault();
 
-    if (isFormValid) {
-      const form = new FormData();
+      if (isFormValid) {
+        const form = new FormData();
 
-      form.append("name", formState.name);
-      form.append("email", formState.email);
-      form.append("phone-number", formState.phoneNumber);
-      form.append("message", formState.message);
+        form.append("name", formState.name);
+        form.append("email", formState.email);
+        form.append("phone-number", formState.phoneNumber);
+        form.append("message", formState.message);
 
-      await fetch("https://webhook.site/24aa5305-ca8e-4647-9afb-70777a8a31a1", {
-        method: "post",
-        body: form,
-        mode: "cors",
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
-      });
+        await fetch("https://webhook.site/24aa5305-ca8e-4647-9afb-70777a8a31a1", {
+          method: "post",
+          body: form,
+          mode: "cors",
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+          },
+        });
+      }
+
+      alert("Formulário enviado com sucesso!");
+      setFormState(initialValues);
+    } catch (error) {
+      console.log(error);
+      alert("Houve um erro ao enviar o formulário");
     }
-
-    alert("Formulário enviado com sucesso!");
-    setFormState(initialValues);
   }
 
   return (
@@ -174,6 +179,10 @@ export function ContactForm() {
 const ContactFormContainer = styled.div`
   width: 85%;
   margin: 48px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 8%);
 
   .contact-form {
     display: flex;
@@ -183,6 +192,8 @@ const ContactFormContainer = styled.div`
 
   .form-title {
     font-size: 32px;
+    font-family: udemy sans, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif,
+      apple color emoji, segoe ui emoji, segoe ui symbol;
   }
 
   .field {
@@ -214,6 +225,10 @@ const ContactFormContainer = styled.div`
     border: none;
     border-radius: 4px;
     width: 100%;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: udemy sans, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif,
+      apple color emoji, segoe ui emoji, segoe ui symbol;
   }
 
   .submit-button:hover {
