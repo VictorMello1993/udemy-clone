@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Validate } from "../services/validate";
 
 const initialValues = {
   name: "",
@@ -8,49 +9,12 @@ const initialValues = {
   message: "",
 };
 
-function isValidName(name: string): string | null {
-  if (!name) {
-    return "O nome é obrigatório";
-  }
-
-  if (name.length > 30) {
-    return "O tamanho máximo do campo nome é de 30 caracteres";
-  }
-
-  return null;
-}
-
-function isValidEmail(email: string): string | null {
-  if (!email) {
-    return "E-mail é obrigatório";
-  }
-
-  if (!email.includes("@")) {
-    return "E-mail inválido";
-  }
-
-  return null;
-}
-
-function isValidMessage(message: string): string | null {
-  if (message.length < 12) {
-    return "A mensagem precista ter pelo menos 12 caracteres";
-  }
-
-  if (message.length > 256) {
-    return "A mensagem precista ter no máximo 256 caracteres";
-  }
-
-  return null;
-}
-
-function isValidPhoneNumber(phoneNumber: string): string | null {
-  if (phoneNumber.length < 6) {
-    return "O número do telefone é inválido";
-  }
-
-  return null;
-}
+export type Payload = {
+  name: string;
+  email: string;
+  phoneNumber: string;
+  message: string;
+};
 
 function ErrorMessage({ message }: { message: string | null }) {
   if (!message) {
@@ -62,19 +26,17 @@ function ErrorMessage({ message }: { message: string | null }) {
 
 export function ContactForm() {
   const [formState, setFormState] = useState(initialValues);
+  const { name, email, phoneNumber, message } = formState;
 
-  const validName = isValidName(formState.name);
-  const validEmail = isValidEmail(formState.email);
-  const validPhoneNumber = isValidPhoneNumber(formState.phoneNumber);
-  const validMessage = isValidMessage(formState.message);
+  const hasErrors = Validate({ name, email, phoneNumber, message });
 
-  const isFormValid = !validName && !validEmail && !validPhoneNumber && !validMessage;
+  console.log(hasErrors);
 
   async function submitForm(event: any) {
     try {
       event.preventDefault();
 
-      if (isFormValid) {
+      if (!hasErrors) {
         const form = new FormData();
 
         form.append("name", formState.name);
@@ -121,7 +83,11 @@ export function ContactForm() {
               value={formState.name}
               onChange={(event) => setFormState({ ...formState, name: event.target.value })}
             />
-            <ErrorMessage message={validName} />
+            {hasErrors
+              .filter((validation) => validation.target === "name")
+              .map((item) => (
+                <ErrorMessage key={item.id} message={item.validationError} />
+              ))}
           </div>
         </div>
 
@@ -136,7 +102,11 @@ export function ContactForm() {
               value={formState.email}
               onChange={(event) => setFormState({ ...formState, email: event.target.value })}
             />
-            <ErrorMessage message={validEmail} />
+            {hasErrors
+              .filter((validation) => validation.target === "email")
+              .map((item) => (
+                <ErrorMessage key={item.id} message={item.validationError} />
+              ))}
           </div>
 
           <div className="field-container phone-number-container">
@@ -148,9 +118,12 @@ export function ContactForm() {
               className="field"
               value={formState.phoneNumber}
               onChange={(event) => setFormState({ ...formState, phoneNumber: event.target.value })}
-              // pattern="\([0-9]{2}\) 9?[0-9]{4}-[0-9]{4}"
             />
-            <ErrorMessage message={validPhoneNumber} />
+            {hasErrors
+              .filter((validation) => validation.target === "phoneNumber")
+              .map((item) => (
+                <ErrorMessage key={item.id} message={item.validationError} />
+              ))}
           </div>
         </div>
 
@@ -165,7 +138,11 @@ export function ContactForm() {
             onChange={(event) => setFormState({ ...formState, message: event.target.value })}
           />
         </div>
-        <ErrorMessage message={validMessage} />
+        {hasErrors
+          .filter((validation) => validation.target === "message")
+          .map((item) => (
+            <ErrorMessage key={item.id} message={item.validationError} />
+          ))}
         <div className="row">
           <button type="submit" className="submit-button">
             Enviar
@@ -229,6 +206,7 @@ const ContactFormContainer = styled.div`
     font-weight: 700;
     font-family: udemy sans, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif,
       apple color emoji, segoe ui emoji, segoe ui symbol;
+    outline: none;
   }
 
   .submit-button:hover {
@@ -269,14 +247,6 @@ const ContactFormContainer = styled.div`
     .form-title {
       text-align: left;
     }
-
-    /* .field:invalid {
-      border-color: #f11212;
-    } */
-
-    /* .field:invalid + .error {
-      display: block;
-    } */
 
     .error {
       color: #f11212;
