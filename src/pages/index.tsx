@@ -17,5 +17,15 @@ export const pageQuery = graphql`
       id
       description
     }
+    allMarkdownRemark(limit: 1) {
+      nodes {
+        id
+        frontmatter {
+          author
+          date(formatString: "DD/MM/yyyy")
+          title
+        }
+      }
+    }
   }
 `;

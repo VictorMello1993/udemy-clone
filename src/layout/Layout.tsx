@@ -12,7 +12,7 @@ export function Layout({ data }: LayoutProps) {
   return (
     <div className="layout">
       <Header />
-      <MainContent coursesInfos={data} />
+      <MainContent data={data} />
       <Footer />
     </div>
   );

@@ -5,10 +5,16 @@ import { Card } from "../components/Card";
 import { ContactForm } from "../components/ContactForm";
 
 export type MainContentProps = {
-  coursesInfos: any;
+  data: any;
 };
 
-export function MainContent({ coursesInfos }: MainContentProps) {
+export function MainContent({ data }: MainContentProps) {
+  const items = data.allMarkdownRemark.nodes.map(({ frontmatter }: any) => ({
+    ...frontmatter,
+  }));
+
+  const jsonItems = { ...data.json };
+
   return (
     <MainContentElement>
       <BannerMainContent />
@@ -17,11 +23,11 @@ export function MainContent({ coursesInfos }: MainContentProps) {
           <div className="course-item-wrapper">
             <div className="title-container">
               <div className="title">
-                <h2>Recomendados para você</h2>
+                <h2>{items[0].title}</h2>
               </div>
             </div>
             <div className="card-container">
-              <Card key={coursesInfos.json.id} {...coursesInfos.json} />
+              <Card key={jsonItems.id} {...jsonItems} />
               <Card
                 description="Curso Javascript e Typescript Avançado"
                 src="https://img-c.udemycdn.com/course/240x135/2575266_c184_4.jpg"
