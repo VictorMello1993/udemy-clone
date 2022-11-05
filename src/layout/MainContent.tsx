@@ -4,7 +4,11 @@ import { BannerMainContent } from "../components/BannerMainContent";
 import { Card } from "../components/Card";
 import { ContactForm } from "../components/ContactForm";
 
-export function MainContent() {
+export type MainContentProps = {
+  coursesInfos: any;
+};
+
+export function MainContent({ coursesInfos }: MainContentProps) {
   return (
     <MainContentElement>
       <BannerMainContent />
@@ -17,17 +21,8 @@ export function MainContent() {
               </div>
             </div>
             <div className="card-container">
+              <Card key={coursesInfos.json.id} {...coursesInfos.json} />
               <Card
-                data-index="0"
-                description="Curso Java"
-                src="https://img-c.udemycdn.com/course/240x135/1701388_0134.jpg"
-                instructorName="Leonardo Leitão"
-                price={34.9}
-                ratingClassification="4.8"
-                totalRate={25360}
-              />
-              <Card
-                data-index="1"
                 description="Curso Javascript e Typescript Avançado"
                 src="https://img-c.udemycdn.com/course/240x135/2575266_c184_4.jpg"
                 instructorName="Luiz Otávio Miranda"
@@ -36,7 +31,6 @@ export function MainContent() {
                 totalRate={13716}
               />
               <Card
-                data-index="2"
                 description="Curso Java 2022"
                 src="https://img-c.udemycdn.com/course/240x135/870252_cf52_8.jpg"
                 instructorName="Leonardo Leitao"
@@ -46,7 +40,6 @@ export function MainContent() {
               />
               <Card
                 description="Desenvolvimento Web Completo 2022"
-                data-index="3"
                 src="https://img-c.udemycdn.com/course/240x135/1341268_c20e_3.jpg"
                 instructorName="Leonardo Leitao"
                 price={85.5}
@@ -54,7 +47,6 @@ export function MainContent() {
                 totalRate={20000}
               />
               <Card
-                data-index="4"
                 description="Curso Docker"
                 src="https://img-c.udemycdn.com/course/240x135/1137616_870b.jpg"
                 instructorName="Leonardo Leitao"
@@ -72,7 +64,6 @@ export function MainContent() {
             </div>
             <div className="card-container">
               <Card
-                data-index="0"
                 description="Curso Javascript do básico ao avançado"
                 src="https://img-c.udemycdn.com/course/240x135/2753456_022d_2.jpg"
                 instructorName="Matheus Battisti"
@@ -81,7 +72,6 @@ export function MainContent() {
                 totalRate={2573}
               />
               <Card
-                data-index="1"
                 description="Curso Iniciando no desenvolvimento de API Node.js com Typescript"
                 src="https://img-c.udemycdn.com/course/240x135/2575266_c184_4.jpg"
                 instructorName="Jorge Aluizion Alves de Souza"
@@ -90,7 +80,6 @@ export function MainContent() {
                 totalRate={15}
               />
               <Card
-                data-index="2"
                 description="Mastering Clean Code in Javascript"
                 src="https://img-c.udemycdn.com/course/240x135/1604852_e8d0_2.jpg"
                 instructorName="Packt Publishing"
@@ -100,7 +89,6 @@ export function MainContent() {
               />
               <Card
                 description="Learn Javascript: Full-Stack from Scratch"
-                data-index="3"
                 src="https://img-c.udemycdn.com/course/240x135/1436332_1fc3_5.jpg"
                 instructorName="Brad Schiff"
                 price={229.9}
@@ -108,7 +96,6 @@ export function MainContent() {
                 totalRate={4560}
               />
               <Card
-                data-index="4"
                 description="Modern JavaScript From the Beginning"
                 src="https://img-c.udemycdn.com/course/240x135/1463348_52a4_2.jpg"
                 instructorName="Brad Traversy"

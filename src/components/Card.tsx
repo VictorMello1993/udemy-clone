@@ -11,6 +11,7 @@ export interface CardProps {
 }
 
 export function Card({ src, description, instructorName, ratingClassification, totalRate, price }: CardProps) {
+  debugger;
   return (
     <CardElement>
       <a href="/">

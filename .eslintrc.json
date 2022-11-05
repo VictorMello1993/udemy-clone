@@ -22,6 +22,9 @@
     ],
     "no-useless-constructor": "off",
     "no-empty-function": "off",
-    "no-redeclare": "off"
+    "no-redeclare": "off",
+    "n/no-path-concat": "off",
+    "array-callback-return": "off",
+    "no-debugger": "off"
   }
 }

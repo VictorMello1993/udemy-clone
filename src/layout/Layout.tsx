@@ -4,11 +4,15 @@ import { Header } from "./Header";
 import { MainContent } from "./MainContent";
 import { Footer } from "./Footer";
 
-export function Layout() {
+export type LayoutProps = {
+  data: any;
+};
+
+export function Layout({ data }: LayoutProps) {
   return (
     <div className="layout">
       <Header />
-      <MainContent />
+      <MainContent coursesInfos={data} />
       <Footer />
     </div>
   );
