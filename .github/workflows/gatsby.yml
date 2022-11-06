@@ -75,7 +75,7 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Generate posts
-        run: node generate-posts.mjs
+        run: ${{ steps.detect-package-manager.outputs.manager }} run generate
       - name: Build with Gatsby
         env:
           PREFIX_PATHS: 'true'
