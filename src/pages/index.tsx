@@ -8,14 +8,15 @@ export default function Home({ data }: PageProps) {
 
 export const pageQuery = graphql`
   {
-    json {
-      totalRate
-      src
-      ratingClassification
-      price
-      instructorName
-      id
-      description
+    allJson {
+      nodes {
+        src
+        price
+        description
+        instructorName
+        totalRate
+        ratingClassification
+      }
     }
     allMarkdownRemark(limit: 1) {
       nodes {

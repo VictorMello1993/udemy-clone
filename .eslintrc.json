@@ -25,6 +25,8 @@
     "no-redeclare": "off",
     "n/no-path-concat": "off",
     "array-callback-return": "off",
-    "no-debugger": "off"
+    "no-debugger": "off",
+    "no-lone-blocks": "off",
+    "no-unused-expressions": "off"
   }
 }

@@ -14,8 +14,6 @@ const coursesImagesUrl = [
   "https://img-c.udemycdn.com/course/240x135/870252_cf52_8.jpg",
   "https://img-c.udemycdn.com/course/240x135/1341268_c20e_3.jpg",
   "https://img-c.udemycdn.com/course/240x135/1137616_870b.jpg",
-  "https://img-c.udemycdn.com/course/240x135/2753456_022d_2.jpg",
-  "https://img-c.udemycdn.com/course/240x135/2575266_c184_4.jpg",
 ];
 
 const markdownLookupTypes = {
