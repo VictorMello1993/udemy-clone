@@ -15,8 +15,6 @@ export function MainContent({ data }: MainContentProps) {
 
   const jsonItems = data.json.courses;
 
-  console.log(jsonItems);
-
   return (
     <MainContentElement>
       <BannerMainContent />
@@ -29,13 +27,8 @@ export function MainContent({ data }: MainContentProps) {
               </div>
             </div>
             <div className="card-container">
-              {JSON.stringify(
-                jsonItems.map((item: CardProps) => {
-                  item;
-                }),
-              )}
-              {jsonItems.map((item: CardProps) => {
-                <Card {...item} />;
+              {jsonItems.map((item: CardProps, key: any) => {
+                return <Card {...item} key={key} />;
               })}
             </div>
           </div>
@@ -65,8 +58,7 @@ const CourseItem = styled.div`
   .course-item-wrapper {
     margin: 48px auto;
     width: 85%;
-    font-family: udemy sans, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif,
-      apple color emoji, segoe ui emoji, segoe ui symbol;
+    font-family: udemy sans, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
   }
 
   .title {

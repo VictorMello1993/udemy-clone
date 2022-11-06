@@ -15,7 +15,7 @@
     "prettier/prettier": [
       "warn",
       {
-        "printWidth": 120,
+        "printWidth": 180,
         "trailingComma": "all",
         "endOfLine": "auto"
       }
