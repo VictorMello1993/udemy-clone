@@ -5,14 +5,15 @@ import { MainContent } from "./MainContent";
 import { Footer } from "./Footer";
 
 export type LayoutProps = {
-  data: any;
+  data?: any;
+  children: React.ReactNode;
 };
 
-export function Layout({ data }: LayoutProps) {
+export function Layout(props: LayoutProps) {
   return (
     <div className="layout">
       <Header />
-      <MainContent data={data} />
+      <MainContent data={props.data}>{props.children}</MainContent>
       <Footer />
     </div>
   );

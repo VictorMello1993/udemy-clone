@@ -65,13 +65,7 @@ export function ContactForm() {
   return (
     <ContactFormContainer>
       <h2 className="form-title">Entre em contato conosco</h2>
-      <form
-        action="https://webhook.site/24aa5305-ca8e-4647-9afb-70777a8a31a1"
-        method="POST"
-        className="contact-form"
-        noValidate
-        onSubmit={(event) => submitForm(event)}
-      >
+      <form action="https://webhook.site/24aa5305-ca8e-4647-9afb-70777a8a31a1" method="POST" className="contact-form" noValidate onSubmit={(event) => submitForm(event)}>
         <div className="row">
           <div className="field-container">
             <input
@@ -169,8 +163,7 @@ const ContactFormContainer = styled.div`
 
   .form-title {
     font-size: 32px;
-    font-family: udemy sans, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif,
-      apple color emoji, segoe ui emoji, segoe ui symbol;
+    font-family: udemy sans, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
   }
 
   .field {
@@ -204,8 +197,7 @@ const ContactFormContainer = styled.div`
     width: 100%;
     font-size: 18px;
     font-weight: 700;
-    font-family: udemy sans, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif,
-      apple color emoji, segoe ui emoji, segoe ui symbol;
+    font-family: udemy sans, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
     outline: none;
   }
 

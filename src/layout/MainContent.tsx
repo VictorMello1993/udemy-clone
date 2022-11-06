@@ -5,15 +5,18 @@ import { Card, CardProps } from "../components/Card";
 import { ContactForm } from "../components/ContactForm";
 
 export type MainContentProps = {
-  data: any;
+  data?: any;
+  children: React.ReactNode;
 };
 
-export function MainContent({ data }: MainContentProps) {
+export function MainContent(props: MainContentProps) {
   // const items = data.allMarkdownRemark.nodes.map(({ frontmatter }: any) => ({
   //   ...frontmatter,
   // }));
 
-  const jsonItems = data.json.courses;
+  const { data } = props;
+
+  const jsonItems = data ? data.json.courses : null;
 
   return (
     <MainContentElement>
@@ -27,9 +30,11 @@ export function MainContent({ data }: MainContentProps) {
               </div>
             </div>
             <div className="card-container">
-              {jsonItems.map((item: CardProps, key: any) => {
-                return <Card {...item} key={key} />;
-              })}
+              {jsonItems
+                ? jsonItems.map((item: CardProps, key: any) => {
+                    return <Card {...item} key={key} />;
+                  })
+                : null}
             </div>
           </div>
         </CourseItem>
@@ -39,7 +44,7 @@ export function MainContent({ data }: MainContentProps) {
   );
 }
 
-const MainContentElement = styled.main`
+export const MainContentElement = styled.main`
   margin-bottom: 50px;
 
   @media (min-width: 530px) {

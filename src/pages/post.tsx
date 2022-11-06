@@ -1,9 +1,17 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
-import { Layout } from "../layout/Layout";
+import { CourseItemDetailContent } from "../layout/CourseItemDetailContent";
+import { Footer } from "../layout/Footer";
+import { Header } from "../layout/Header";
 
-export default function Home(props: PageProps) {
-  return <Layout data={props.data}>{props.children}</Layout>;
+export default function Post(props: PageProps) {
+  return (
+    <div className="layout">
+      <Header />
+      <CourseItemDetailContent />
+      <Footer />
+    </div>
+  );
 }
 
 export const pageQuery = graphql`
