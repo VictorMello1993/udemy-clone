@@ -13,7 +13,9 @@ export function MainContent({ data }: MainContentProps) {
   //   ...frontmatter,
   // }));
 
-  const jsonItems = (data as any).allJson.nodes.map((item: CardProps) => item);
+  const jsonItems = data.json.courses;
+
+  console.log(jsonItems);
 
   return (
     <MainContentElement>
