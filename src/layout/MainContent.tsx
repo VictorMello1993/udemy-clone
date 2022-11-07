@@ -10,13 +10,17 @@ export type MainContentProps = {
 };
 
 export function MainContent(props: MainContentProps) {
-  // const items = data.allMarkdownRemark.nodes.map(({ frontmatter }: any) => ({
-  //   ...frontmatter,
-  // }));
-
   const { data } = props;
 
   const jsonItems = data ? data.json.courses : null;
+
+  const items = data
+    ? data.allMarkdownRemark.nodes.map(({ frontmatter }: any) => ({
+        ...frontmatter,
+      }))
+    : null;
+
+  console.log(items);
 
   return (
     <MainContentElement>

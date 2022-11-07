@@ -18,12 +18,14 @@ export const pageQuery = graphql`
         totalRate
       }
     }
-    allMarkdownRemark(limit: 1) {
+    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
-        id
+        fields {
+          slug
+        }
         frontmatter {
           author
-          date(formatString: "DD/MM/yyyy")
+          date
           title
         }
       }

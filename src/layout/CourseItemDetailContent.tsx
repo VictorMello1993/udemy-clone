@@ -2,7 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import { MainContentElement } from "./MainContent";
 
-export function CourseItemDetailContent() {
+export type CourseItemDetailContentProps = {
+  data: any;
+};
+
+export function CourseItemDetailContent({ data }: CourseItemDetailContentProps) {
+  // const {
+  //   html,
+  //   frontmatter: { author, date, title },
+  // } = (data as any).markdownRemark;
+
   return (
     <MainContentElement>
       <CourseItemDetailTopContainer>
