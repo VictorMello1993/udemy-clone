@@ -8,12 +8,13 @@ export interface CardProps {
   ratingClassification: string;
   totalRate: number;
   price: number;
+  link: string;
 }
 
-export function Card({ src, description, instructorName, ratingClassification, totalRate, price }: CardProps) {
+export function Card({ src, description, instructorName, ratingClassification, totalRate, price, link }: CardProps) {
   return (
     <CardElement>
-      <a href="/">
+      <a href={link}>
         <div className="course-image">
           <img src={src} />
         </div>

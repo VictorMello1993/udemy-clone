@@ -7,13 +7,16 @@ import { Footer } from "./Footer";
 export type LayoutProps = {
   data?: any;
   children: React.ReactNode;
+  items: any;
 };
 
 export function Layout(props: LayoutProps) {
   return (
     <div className="layout">
       <Header />
-      <MainContent data={props.data}>{props.children}</MainContent>
+      <MainContent items={props.items} data={props.data}>
+        {props.children}
+      </MainContent>
       <Footer />
     </div>
   );

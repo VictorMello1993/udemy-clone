@@ -7,18 +7,13 @@ import { ContactForm } from "../components/ContactForm";
 export type MainContentProps = {
   data?: any;
   children: React.ReactNode;
+  items: any;
 };
 
 export function MainContent(props: MainContentProps) {
-  const { data } = props;
+  const { data, items } = props;
 
   const jsonItems = data ? data.json.courses : null;
-
-  const items = data
-    ? data.allMarkdownRemark.nodes.map(({ frontmatter }: any) => ({
-        ...frontmatter,
-      }))
-    : null;
 
   console.log(items);
 
@@ -35,8 +30,19 @@ export function MainContent(props: MainContentProps) {
             </div>
             <div className="card-container">
               {jsonItems
-                ? jsonItems.map((item: CardProps, key: any) => {
-                    return <Card {...item} key={key} />;
+                ? jsonItems.map((item: CardProps, key: number) => {
+                    return (
+                      <Card
+                        description={item.description}
+                        instructorName={item.instructorName}
+                        price={item.price}
+                        ratingClassification={item.description}
+                        src={item.src}
+                        totalRate={item.totalRate}
+                        key={key}
+                        link={items[key].link}
+                      />
+                    );
                   })
                 : null}
             </div>

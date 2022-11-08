@@ -3,7 +3,16 @@ import React from "react";
 import { Layout } from "../layout/Layout";
 
 export default function Home(props: PageProps) {
-  return <Layout data={props.data}>{props.children}</Layout>;
+  const items = (props.data as any).allMarkdownRemark.nodes.map(({ frontmatter, fields }: any) => ({
+    ...frontmatter,
+    link: `/posts/${fields.slug}`,
+    image: "https://loremflickr.com/400/400",
+  }));
+  return (
+    <Layout items={items} data={props.data}>
+      {props.children}
+    </Layout>
+  );
 }
 
 export const pageQuery = graphql`

@@ -1,23 +1,43 @@
 import React from "react";
 import styled from "styled-components";
-import { CourseItemDetail } from "../components/CourseItemDetail";
-import { MainContentElement } from "./MainContent";
 
-export type CourseItemDetailContentProps = {
-  data: any;
-};
+export interface CourseItemDetailProps {
+  title: string;
+  author: string;
+  publishDate: Date;
+}
 
-export function CourseItemDetailContent({ data }: CourseItemDetailContentProps) {
-  const {
-    frontmatter: { author, date, title },
-  } = (data as any).markdownRemark;
-
+export function CourseItemDetail({ title, author, publishDate }: CourseItemDetailProps) {
   return (
-    <MainContentElement>
-      <CourseItemDetailTopContainer>
-        <CourseItemDetail author={author} publishDate={new Date(date)} title={title} />
-      </CourseItemDetailTopContainer>
-    </MainContentElement>
+    <CourseItemDetailTopContainer>
+      <div className="course-detail">
+        <div className="course-detail image">
+          <img src="https://img-c.udemycdn.com/course/480x270/1137616_870b.jpg" alt="Curso Docker" />
+        </div>
+        <div className="course-detail text">
+          <div className="course-detail title">
+            <h2>{title}</h2>
+          </div>
+          <div className="course-detail description">Aprenda a criar ambientes profissionais completos com Docker, que é a principal tecnologia de containers do mercado</div>
+          <div className="course-detail info">
+            <div className="rating">4.7</div>
+            <div className="rating-count">9185</div>
+            <div className="students-subscribed">22934</div>
+          </div>
+          <div className="course-detail created-by">{author}</div>
+          <div className="course-detail last-info">
+            <div className="course-detail last-update">
+              <time dateTime={publishDate.toJSON()}>{publishDate.toLocaleDateString("pt-br")}</time>
+            </div>
+            <div className="course-detail language">Português</div>
+          </div>
+          <div className="course-detail price">R$ 30.00</div>
+        </div>
+      </div>
+      <div className="try-free-button">
+        <a href="/">Experimente o Plano individual gratuitamente</a>
+      </div>
+    </CourseItemDetailTopContainer>
   );
 }
 

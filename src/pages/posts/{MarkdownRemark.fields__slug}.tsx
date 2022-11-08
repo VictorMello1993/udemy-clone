@@ -5,11 +5,6 @@ import { Footer } from "../../layout/Footer";
 import { Header } from "../../layout/Header";
 
 export default function Post({ data }: PageProps) {
-  // const {
-  //   html,
-  //   frontmatter: { author, date, title },
-  // } = (data as any).markdownRemark;
-
   return (
     <div className="layout">
       <Header />
