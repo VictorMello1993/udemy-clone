@@ -9,13 +9,22 @@ export type CourseItemDetailContentProps = {
 
 export function CourseItemDetailContent({ data }: CourseItemDetailContentProps) {
   const {
-    frontmatter: { author, date, title },
+    frontmatter: { author, date, title, instructorName, description, price, ratingClassification, totalRate },
   } = (data as any).markdownRemark;
 
   return (
     <MainContentElement>
       <CourseItemDetailTopContainer>
-        <CourseItemDetail author={author} publishDate={new Date(date)} title={title} />
+        <CourseItemDetail
+          author={author}
+          publishDate={new Date(date)}
+          title={title}
+          description={description}
+          price={price}
+          ratingClassification={ratingClassification}
+          totalRate={totalRate}
+          instructorName={instructorName}
+        />
       </CourseItemDetailTopContainer>
     </MainContentElement>
   );

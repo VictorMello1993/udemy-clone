@@ -15,8 +15,6 @@ export function MainContent(props: MainContentProps) {
 
   const jsonItems = data ? data.json.courses : null;
 
-  console.log(items);
-
   return (
     <MainContentElement>
       <BannerMainContent />
@@ -36,7 +34,7 @@ export function MainContent(props: MainContentProps) {
                         description={item.description}
                         instructorName={item.instructorName}
                         price={item.price}
-                        ratingClassification={item.description}
+                        ratingClassification={item.ratingClassification}
                         src={item.src}
                         totalRate={item.totalRate}
                         key={key}

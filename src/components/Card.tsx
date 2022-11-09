@@ -19,14 +19,16 @@ export function Card({ src, description, instructorName, ratingClassification, t
           <img src={src} />
         </div>
         <div className="course-info">
-          <h3>{description}</h3>
+          <div className="description">
+            <h3>{description}</h3>
+          </div>
           <div className="instructor">{instructorName}</div>
           <div className="rating">
             <span className="rating-classification">{ratingClassification}</span>
             <span className="rating-star"></span>
             <span className="total-reviews">{totalRate}</span>
           </div>
-          <div className="price">R${price}</div>
+          <div className="price">R$ {price.toFixed(2)}</div>
         </div>
       </a>
     </CardElement>
@@ -38,8 +40,30 @@ const CardElement = styled.div`
     text-decoration: none;
   }
 
-  a:hover {
+  a:hover img {
     opacity: 0.8;
     transition: opacity linear 100ms;
+  }
+
+  a,
+  a:active {
+    text-decoration: none;
+    color: #000;
+  }
+
+  .course-info div:not(:first-child) {
+    margin-top: 3px;
+  }
+
+  .rating span {
+    display: inline-block;
+  }
+
+  .rating span:not(:first-child) {
+    margin-left: 15px;
+  }
+
+  .instructor {
+    font-size: 13px;
   }
 `;

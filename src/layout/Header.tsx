@@ -9,7 +9,9 @@ export function Header() {
     <HeaderApp>
       <HeaderAppContent>
         <div className="row">
-          <UdemyLogo height="34px" fill="#000" />
+          <a href="/">
+            <UdemyLogo height="34px" fill="#000" />
+          </a>
         </div>
         <div className="row">
           <SearchBar />

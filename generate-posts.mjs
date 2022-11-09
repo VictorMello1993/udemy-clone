@@ -8,13 +8,13 @@ import slugify from "slugify";
 
 const https = request.https;
 
-const coursesImagesUrl = [
-  "https://img-c.udemycdn.com/course/240x135/1701388_0134.jpg",
-  "https://img-c.udemycdn.com/course/240x135/2575266_c184_4.jpg",
-  "https://img-c.udemycdn.com/course/240x135/870252_cf52_8.jpg",
-  "https://img-c.udemycdn.com/course/240x135/1341268_c20e_3.jpg",
-  "https://img-c.udemycdn.com/course/240x135/1137616_870b.jpg",
-];
+// const coursesImagesUrl = [
+//   "https://img-c.udemycdn.com/course/240x135/1701388_0134.jpg",
+//   "https://img-c.udemycdn.com/course/240x135/2575266_c184_4.jpg",
+//   "https://img-c.udemycdn.com/course/240x135/870252_cf52_8.jpg",
+//   "https://img-c.udemycdn.com/course/240x135/1341268_c20e_3.jpg",
+//   "https://img-c.udemycdn.com/course/240x135/1137616_870b.jpg",
+// ];
 
 const markdownLookupTypes = {
   0: "h1",
@@ -45,7 +45,7 @@ function generateMarkdown(lines = 10) {
   }).join("\n");
 }
 
-async function generatePost(url) {
+async function generatePost({ description, src, instructorName, price, ratingClassification, totalRate }) {
   const title = faker.lorem.sentence();
   const slug = slugify(title, {
     strict: true,
@@ -65,7 +65,7 @@ async function generatePost(url) {
   }).concat(".jpg");
 
   shell.mkdir(postPath);
-  await downloadImage(url, path.join(postPath, imageFileName));
+  await downloadImage(src, path.join(postPath, imageFileName));
   await downloadImage(authorImageUrl, path.join(postPath, authorImageFileName));
 
   const markDownFile = [
@@ -76,6 +76,11 @@ async function generatePost(url) {
     `author: "${author}"`,
     `authorImage: "${authorImageFileName}"`,
     `image: "${imageFileName}"`,
+    `description: "${description}"`,
+    `instructorName: "${instructorName}"`,
+    `price: "${price}"`,
+    `ratingClassification: "${ratingClassification}"`,
+    `totalRate: "${totalRate}"`,
     "---",
     text,
   ].join("\n");
@@ -96,11 +101,18 @@ async function downloadImage(url, imagePath) {
 
 (async function generatePosts() {
   console.log("Starting process...");
+
+  const json = await fs.readFile("./data/course.json", "utf-8", (data) => {
+    return data;
+  });
+
+  const { courses } = JSON.parse(json);
+
   shell.rm("-rf", "courses");
   shell.mkdir("courses");
   await Promise.all(
-    coursesImagesUrl.map(async (url, index) => {
-      await generatePost(url);
+    courses.map(async (course) => {
+      await generatePost(course);
     }),
   );
 

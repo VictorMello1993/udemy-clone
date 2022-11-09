@@ -25,6 +25,11 @@ export const pageQuery = graphql`
         author
         title
         date
+        description
+        instructorName
+        price
+        ratingClassification
+        totalRate
       }
     }
   }

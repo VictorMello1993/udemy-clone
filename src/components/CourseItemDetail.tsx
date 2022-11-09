@@ -5,33 +5,38 @@ export interface CourseItemDetailProps {
   title: string;
   author: string;
   publishDate: Date;
+  description: string;
+  ratingClassification: string;
+  instructorName: string;
+  totalRate: Number;
+  price: Number;
 }
 
-export function CourseItemDetail({ title, author, publishDate }: CourseItemDetailProps) {
+export function CourseItemDetail({ title, author, publishDate, instructorName, description, ratingClassification, totalRate, price }: CourseItemDetailProps) {
   return (
     <CourseItemDetailTopContainer>
       <div className="course-detail">
         <div className="course-detail image">
-          <img src="https://img-c.udemycdn.com/course/480x270/1137616_870b.jpg" alt="Curso Docker" />
+          <img src="https://img-c.udemycdn.com/course/480x270/1137616_870b.jpg" alt={title} />
         </div>
         <div className="course-detail text">
           <div className="course-detail title">
-            <h2>{title}</h2>
+            <h2>{description}</h2>
           </div>
-          <div className="course-detail description">Aprenda a criar ambientes profissionais completos com Docker, que é a principal tecnologia de containers do mercado</div>
+          <div className="course-detail description">{description}</div>
           <div className="course-detail info">
-            <div className="rating">4.7</div>
-            <div className="rating-count">9185</div>
+            <div className="rating">{ratingClassification}</div>
+            <div className="rating-count">{Number(totalRate)}</div>
             <div className="students-subscribed">22934</div>
           </div>
-          <div className="course-detail created-by">{author}</div>
+          <div className="course-detail created-by">{instructorName}</div>
           <div className="course-detail last-info">
             <div className="course-detail last-update">
               <time dateTime={publishDate.toJSON()}>{publishDate.toLocaleDateString("pt-br")}</time>
             </div>
             <div className="course-detail language">Português</div>
           </div>
-          <div className="course-detail price">R$ 30.00</div>
+          <div className="course-detail price">R$ {Number(price).toFixed(2)}</div>
         </div>
       </div>
       <div className="try-free-button">
