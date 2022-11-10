@@ -8,14 +8,6 @@ import slugify from "slugify";
 
 const https = request.https;
 
-// const coursesImagesUrl = [
-//   "https://img-c.udemycdn.com/course/240x135/1701388_0134.jpg",
-//   "https://img-c.udemycdn.com/course/240x135/2575266_c184_4.jpg",
-//   "https://img-c.udemycdn.com/course/240x135/870252_cf52_8.jpg",
-//   "https://img-c.udemycdn.com/course/240x135/1341268_c20e_3.jpg",
-//   "https://img-c.udemycdn.com/course/240x135/1137616_870b.jpg",
-// ];
-
 const markdownLookupTypes = {
   0: "h1",
   1: "h1",
@@ -45,28 +37,15 @@ function generateMarkdown(lines = 10) {
   }).join("\n");
 }
 
-async function generatePost({ description, src, instructorName, price, ratingClassification, totalRate }) {
-  const title = faker.lorem.sentence();
-  const slug = slugify(title, {
-    strict: true,
-  }).toLowerCase();
+async function generatePost(
+  { description, src, instructorName, price, ratingClassification, totalRate },
+  { title, slug, postPath, author, authorImageUrl, authorImageFileName, imageFileName },
+  directory,
+) {
   const date = faker.date.recent();
-  const author = faker.internet.userName().toLowerCase();
   const text = generateMarkdown(Math.round(Math.random() * 12 + 3));
-  const imageFileName = slugify(faker.lorem.slug(), {
-    strict: true,
-  })
-    .toLowerCase()
-    .concat(".jpg");
-  const postPath = path.join("courses", slug);
-  const authorImageUrl = faker.internet.avatar();
-  const authorImageFileName = slugify(author, {
-    strict: true,
-  }).concat(".jpg");
 
-  shell.mkdir(postPath);
-  await downloadImage(src, path.join(postPath, imageFileName));
-  await downloadImage(authorImageUrl, path.join(postPath, authorImageFileName));
+  const dirPath = path.join("courses", directory);
 
   const markDownFile = [
     "---",
@@ -85,7 +64,8 @@ async function generatePost({ description, src, instructorName, price, ratingCla
     text,
   ].join("\n");
 
-  await fs.writeFile(path.join(postPath, "index.md"), markDownFile);
+  await fs.writeFile(path.join(dirPath, "index.md"), markDownFile);
+
   console.log(`Generated post at ${postPath}`);
 }
 
@@ -99,6 +79,37 @@ async function downloadImage(url, imagePath) {
   });
 }
 
+async function createDirectories(courses) {
+  const directoriesInfo = [];
+
+  for (let i = 0; i < courses.length; i++) {
+    const title = faker.lorem.sentence();
+    const slug = slugify(title, {
+      strict: true,
+    }).toLowerCase();
+
+    const postPath = path.join("courses", slug);
+
+    const imageFileName = slugify(faker.lorem.slug(), {
+      strict: true,
+    })
+      .toLowerCase()
+      .concat(".jpg");
+
+    const author = faker.internet.userName().toLowerCase();
+    const authorImageUrl = faker.internet.avatar();
+    const authorImageFileName = slugify(author, {
+      strict: true,
+    }).concat(".jpg");
+
+    directoriesInfo.push({ title, slug, postPath, author, authorImageUrl, authorImageFileName, imageFileName });
+
+    await fs.mkdir(postPath);
+  }
+
+  return directoriesInfo;
+}
+
 (async function generatePosts() {
   console.log("Starting process...");
 
@@ -110,9 +121,15 @@ async function downloadImage(url, imagePath) {
 
   shell.rm("-rf", "courses");
   shell.mkdir("courses");
+
+  const directoriesInfo = await createDirectories(courses);
+  const directories = await fs.readdir("courses");
+
   await Promise.all(
-    courses.map(async (course) => {
-      await generatePost(course);
+    courses.map(async (course, index) => {
+      await generatePost(course, directoriesInfo[index], directories[index]);
+      await downloadImage(course.src, path.join("courses", directories[index], directoriesInfo[index].imageFileName));
+      await downloadImage(directoriesInfo[index].authorImageUrl, path.join("courses", directories[index], directoriesInfo[index].authorImageFileName));
     }),
   );
 

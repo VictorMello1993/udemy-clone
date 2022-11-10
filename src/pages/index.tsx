@@ -27,7 +27,7 @@ export const pageQuery = graphql`
         totalRate
       }
     }
-    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+    allMarkdownRemark(sort: { fields: fields___slug, order: ASC }) {
       nodes {
         fields {
           slug
@@ -37,6 +37,7 @@ export const pageQuery = graphql`
           date
           title
         }
+        id
       }
     }
   }
