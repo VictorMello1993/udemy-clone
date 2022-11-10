@@ -1,3 +1,4 @@
+import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 import { SearchBar } from "../components/SearchBar";
@@ -9,9 +10,9 @@ export function Header() {
     <HeaderApp>
       <HeaderAppContent>
         <div className="row">
-          <a href="/">
+          <Link to="/">
             <UdemyLogo height="34px" fill="#000" />
-          </a>
+          </Link>
         </div>
         <div className="row">
           <SearchBar />

@@ -1,3 +1,4 @@
+import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 import { UdemyLogo } from "./UdemyLogo";
@@ -7,12 +8,12 @@ export function CopyrightFooter() {
     <CopyrightFooterElement>
       <UdemyLogo height="34px" fill="#fff" />
       <div className="footer-links">
-        <a href="/">
+        <Link to="/">
           <span>Home</span>
-        </a>
-        <a href="/">
+        </Link>
+        <Link to="/">
           <span>Contato</span>
-        </a>
+        </Link>
       </div>
       <div className="copyright-description">
         <span>© 2022 Udemy, Inc. por Victor Mello</span>

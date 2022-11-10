@@ -1,3 +1,4 @@
+import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 
@@ -14,7 +15,7 @@ export interface CardProps {
 export function Card({ src, description, instructorName, ratingClassification, totalRate, price, link }: CardProps) {
   return (
     <CardElement>
-      <a href={link}>
+      <Link to={link}>
         <div className="course-image">
           <img src={src} />
         </div>
@@ -30,7 +31,7 @@ export function Card({ src, description, instructorName, ratingClassification, t
           </div>
           <div className="price">R$ {price.toFixed(2)}</div>
         </div>
-      </a>
+      </Link>
     </CardElement>
   );
 }
