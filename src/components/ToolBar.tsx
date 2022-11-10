@@ -3,22 +3,24 @@ import styled from "styled-components";
 import { AiOutlineHeart } from "react-icons/ai";
 import { MdNotificationsNone, MdOutlineShoppingCart } from "react-icons/md";
 import { Avatar } from "./Avatar";
+import { Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 
 export function ToolBar() {
   return (
     <ToolBarItems>
-      <a className="item" href="/">
+      <Link className="item" to="/">
         <AiOutlineHeart size="25px" />
-      </a>
-      <a className="item" href="/">
+      </Link>
+      <Link className="item" to="/">
         <MdOutlineShoppingCart size="25px" />
-      </a>
-      <a className="item" href="/">
+      </Link>
+      <Link className="item" to="/">
         <MdNotificationsNone size="25px" />
-      </a>
-      <a className="item" href="/">
-        <Avatar src="https://avatars.githubusercontent.com/u/35710766?v=4" />
-      </a>
+      </Link>
+      <Link className="item" to="/">
+        <StaticImage width={36} height={36} alt="" src="https://avatars.githubusercontent.com/u/35710766?v=4" style={{ borderRadius: "20px" }} />
+      </Link>
     </ToolBarItems>
   );
 }

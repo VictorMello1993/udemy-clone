@@ -35,10 +35,11 @@ export function MainContent(props: MainContentProps) {
                         instructorName={item.instructorName}
                         price={item.price}
                         ratingClassification={item.ratingClassification}
-                        src={item.src}
+                        src={items[key].image}
                         totalRate={item.totalRate}
                         key={key}
                         link={items[key].link}
+                        title={items[key].title}
                       />
                     );
                   })

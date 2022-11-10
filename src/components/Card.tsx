@@ -1,23 +1,34 @@
 import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 
 export interface CardProps {
-  src: string;
+  src: IGatsbyImageData;
   description: string;
   instructorName: string;
   ratingClassification: string;
   totalRate: number;
   price: number;
   link: string;
+  title: string;
 }
 
-export function Card({ src, description, instructorName, ratingClassification, totalRate, price, link }: CardProps) {
+export function Card({ src, description, instructorName, ratingClassification, totalRate, price, link, title }: CardProps) {
+  console.log(src);
   return (
     <CardElement>
       <Link to={link}>
         <div className="course-image">
-          <img src={src} />
+          {src && (
+            <GatsbyImage
+              image={src}
+              alt=""
+              style={{
+                width: "100%",
+              }}
+            />
+          )}
         </div>
         <div className="course-info">
           <div className="description">
@@ -41,7 +52,7 @@ const CardElement = styled.div`
     text-decoration: none;
   }
 
-  a:hover img {
+  a:hover GatsbyImage {
     opacity: 0.8;
     transition: opacity linear 100ms;
   }

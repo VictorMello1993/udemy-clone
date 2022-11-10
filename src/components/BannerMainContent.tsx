@@ -1,3 +1,4 @@
+import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
 
@@ -6,17 +7,11 @@ export function BannerMainContent() {
     <BannerElement>
       <div className="image-container">
         <div className="image">
-          <img
-            src="https://img-c.udemycdn.com/notices/featured_banner/image_udlite/1cd05c12-f169-45ae-a452-adb8c81739b4.jpg"
-            alt="Banner"
-          />
+          <StaticImage src="https://img-c.udemycdn.com/notices/featured_banner/image_udlite/1cd05c12-f169-45ae-a452-adb8c81739b4.jpg" alt="Banner" />
         </div>
         <div className="banner-description">
           <h1>Encontre o melhor para você</h1>
-          <p>
-            Muitos cursos oferecem prévias gratuitas para que você possa conferir o conteúdo e o estilo de ensino. Dê
-            uma olhada.
-          </p>
+          <p>Muitos cursos oferecem prévias gratuitas para que você possa conferir o conteúdo e o estilo de ensino. Dê uma olhada.</p>
         </div>
       </div>
     </BannerElement>
@@ -57,8 +52,7 @@ const BannerElement = styled.div`
   p {
     line-height: 22.4px;
     font-size: 16px;
-    font-family: udemy sans, sf pro text, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial,
-      sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+    font-family: udemy sans, sf pro text, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
   }
 
   @media (min-width: 500px) and (max-width: 650px) {

@@ -12,8 +12,6 @@ export function CourseItemDetailContent({ data }: CourseItemDetailContentProps) 
     frontmatter: { author, date, title, instructorName, description, price, ratingClassification, totalRate },
   } = (data as any).markdownRemark;
 
-  console.log(data);
-
   return (
     <MainContentElement>
       <CourseItemDetailTopContainer>
