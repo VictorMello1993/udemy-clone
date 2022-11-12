@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { AiOutlineHeart } from "react-icons/ai";
 import { MdNotificationsNone, MdOutlineShoppingCart } from "react-icons/md";
-import { Avatar } from "./Avatar";
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 

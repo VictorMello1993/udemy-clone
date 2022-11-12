@@ -6,10 +6,12 @@ import { Footer } from "../../layout/Footer";
 import { Header } from "../../layout/Header";
 
 export default function Post({ data }: PageProps) {
+  const { frontmatter } = (data as any).markdownRemark;
+
   return (
     <div className="layout">
       <Header />
-      <CourseItemDetailContent data={data} />
+      <CourseItemDetailContent data={frontmatter} />
       <Footer />
     </div>
   );
@@ -21,7 +23,6 @@ export const pageQuery = graphql`
       fields {
         slug
       }
-      html
       frontmatter {
         author
         title
@@ -33,7 +34,7 @@ export const pageQuery = graphql`
         totalRate
         image {
           childImageSharp {
-            gatsbyImageData(height: 240, width: 240, formats: JPG, layout: CONSTRAINED)
+            gatsbyImageData(width: 480, height: 270, layout: CONSTRAINED, formats: [WEBP, JPG], quality: 70)
           }
         }
       }

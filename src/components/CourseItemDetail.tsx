@@ -1,5 +1,6 @@
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 import React from "react";
+import { MdOutlineShoppingCart } from "react-icons/md";
 import styled from "styled-components";
 
 export interface CourseItemDetailProps {
@@ -11,14 +12,14 @@ export interface CourseItemDetailProps {
   instructorName: string;
   totalRate: Number;
   price: Number;
-  src: IGatsbyImageData;
+  src?: IGatsbyImageData;
 }
 
 export function CourseItemDetail({ title, author, publishDate, instructorName, description, ratingClassification, totalRate, price, src }: CourseItemDetailProps) {
   return (
     <CourseItemDetailTopContainer>
       <div className="course-detail">
-        <div className="course-detail image">{src && <GatsbyImage alt="" image={src} title={title} />}</div>
+        <div className="course-detail image">{src && <GatsbyImage alt="" image={src} />}</div>
         <div className="course-detail text">
           <div className="course-detail title">
             <h2>{description}</h2>
@@ -39,8 +40,13 @@ export function CourseItemDetail({ title, author, publishDate, instructorName, d
           <div className="course-detail price">R$ {Number(price).toFixed(2)}</div>
         </div>
       </div>
-      <div className="try-free-button">
-        <a href="/">Experimente o Plano individual gratuitamente</a>
+      <div className="purchase-button">
+        <div className="purchase-icon">
+          <MdOutlineShoppingCart size="25px" color="#fff" />
+        </div>
+        <div className="purchase-link">
+          <a href="/">Comprar</a>
+        </div>
       </div>
     </CourseItemDetailTopContainer>
   );
@@ -80,15 +86,22 @@ const CourseItemDetailTopContainer = styled.div`
     font-weight: 500;
   }
 
-  .try-free-button {
+  .purchase-button {
     background-color: #a435f0;
     padding: 12px 12px;
     text-align: center;
     cursor: pointer;
     border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .try-free-button:hover {
+  .purchase-icon {
+    margin-right: 15px;
+  }
+
+  .purchase-button:hover {
     background-color: #8315cd;
   }
 
@@ -96,7 +109,7 @@ const CourseItemDetailTopContainer = styled.div`
     font-size: 30px;
   }
 
-  .try-free-button a {
+  .purchase-button a {
     color: #fff;
     text-decoration: none;
     font-weight: 700;

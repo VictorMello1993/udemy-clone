@@ -1,14 +1,15 @@
+import { IGatsbyImageData } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image/dist/src/components/gatsby-image.browser";
 import React from "react";
 import styled from "styled-components";
 
-export interface AvatarProps {
-  src: string;
-}
+export type AvatarProps = {} & ({ src: string } | { image: IGatsbyImageData });
 
-export function Avatar({ src }: AvatarProps) {
+export function Avatar({ ...data }: AvatarProps) {
   return (
     <AvatarElement>
-      <img src={src} />
+      {"src" in data && <img src={data.src} />}
+      {"image" in data && <GatsbyImage image={data.image} alt="" />}
     </AvatarElement>
   );
 }

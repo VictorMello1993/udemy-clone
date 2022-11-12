@@ -11,6 +11,7 @@ export type MainContentProps = {
 };
 
 export function MainContent(props: MainContentProps) {
+  debugger;
   const { data, items } = props;
 
   const jsonItems = data ? data.json.courses : null;

@@ -1,3 +1,4 @@
+import { getImage } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
 import { CourseItemDetail } from "../components/CourseItemDetail";
@@ -8,9 +9,8 @@ export type CourseItemDetailContentProps = {
 };
 
 export function CourseItemDetailContent({ data }: CourseItemDetailContentProps) {
-  const {
-    frontmatter: { author, date, title, instructorName, description, price, ratingClassification, totalRate, image },
-  } = (data as any).markdownRemark;
+  const { author, date, title, instructorName, description, price, ratingClassification, totalRate, image, authorImage } = data;
+  console.log("image", image);
 
   return (
     <MainContentElement>
@@ -24,7 +24,7 @@ export function CourseItemDetailContent({ data }: CourseItemDetailContentProps) 
           ratingClassification={ratingClassification}
           totalRate={totalRate}
           instructorName={instructorName}
-          src={image}
+          src={getImage(image.childImageSharp)}
         />
       </CourseItemDetailTopContainer>
     </MainContentElement>
@@ -91,18 +91,6 @@ const CourseItemDetailTopContainer = styled.div`
     .course-detail {
       width: 75%;
     }
-    /* .course-detail {
-      display: flex;
-      flex-direction: column;
-      margin-top: 10vh;
-      width: 50%;
-    } */
-
-    /* .course-detail .text {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    } */
   }
 
   @media (max-width: 600px) {

@@ -2,7 +2,7 @@ import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    siteUrl: `https://victormello1993.github.io/udemy-clone`,
+    siteUrl: `https://victormello1993.github.io`,
   },
   pathPrefix: "/udemy-clone",
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.

@@ -19,15 +19,13 @@ export function Card({ src, description, instructorName, ratingClassification, t
     <CardElement>
       <Link to={link}>
         <div className="course-image">
-          {src && (
-            <GatsbyImage
-              image={src}
-              alt=""
-              style={{
-                width: "100%",
-              }}
-            />
-          )}
+          <GatsbyImage
+            image={src}
+            alt=""
+            style={{
+              width: "100%",
+            }}
+          />
         </div>
         <div className="course-info">
           <div className="description">
