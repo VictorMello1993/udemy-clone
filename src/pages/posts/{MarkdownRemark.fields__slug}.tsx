@@ -1,11 +1,11 @@
 import { graphql, PageProps } from "gatsby";
+import { getImage } from "gatsby-plugin-image";
 import React from "react";
 import { CourseItemDetailContent } from "../../layout/CourseItemDetailContent";
 import { Footer } from "../../layout/Footer";
 import { Header } from "../../layout/Header";
 
 export default function Post({ data }: PageProps) {
-  debugger;
   return (
     <div className="layout">
       <Header />
@@ -31,6 +31,11 @@ export const pageQuery = graphql`
         price
         ratingClassification
         totalRate
+        image {
+          childImageSharp {
+            gatsbyImageData(height: 240, width: 240, formats: JPG, layout: CONSTRAINED)
+          }
+        }
       }
     }
   }

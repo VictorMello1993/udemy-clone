@@ -1,3 +1,4 @@
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
 
@@ -10,15 +11,14 @@ export interface CourseItemDetailProps {
   instructorName: string;
   totalRate: Number;
   price: Number;
+  src: IGatsbyImageData;
 }
 
-export function CourseItemDetail({ title, author, publishDate, instructorName, description, ratingClassification, totalRate, price }: CourseItemDetailProps) {
+export function CourseItemDetail({ title, author, publishDate, instructorName, description, ratingClassification, totalRate, price, src }: CourseItemDetailProps) {
   return (
     <CourseItemDetailTopContainer>
       <div className="course-detail">
-        <div className="course-detail image">
-          <img src="https://img-c.udemycdn.com/course/480x270/1137616_870b.jpg" alt={title} />
-        </div>
+        <div className="course-detail image">{src && <GatsbyImage alt="" image={src} title={title} />}</div>
         <div className="course-detail text">
           <div className="course-detail title">
             <h2>{description}</h2>
@@ -106,18 +106,6 @@ const CourseItemDetailTopContainer = styled.div`
     .course-detail {
       width: 75%;
     }
-    /* .course-detail {
-      display: flex;
-      flex-direction: column;
-      margin-top: 10vh;
-      width: 50%;
-    } */
-
-    /* .course-detail .text {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    } */
   }
 
   @media (max-width: 600px) {

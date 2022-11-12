@@ -15,7 +15,6 @@ export interface CardProps {
 }
 
 export function Card({ src, description, instructorName, ratingClassification, totalRate, price, link, title }: CardProps) {
-  console.log(src);
   return (
     <CardElement>
       <Link to={link}>
