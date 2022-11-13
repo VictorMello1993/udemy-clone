@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { schema } from "../config/schemaValidation";
 import { Validate } from "../services/validate";
 
 const initialValues = {
@@ -37,6 +38,8 @@ export function ContactForm() {
   }, [name]);
 
   const hasErrors = Validate({ name, email, phoneNumber, message });
+
+  console.log("hasErrors", hasErrors);
 
   async function submitForm(event: any) {
     event.preventDefault();

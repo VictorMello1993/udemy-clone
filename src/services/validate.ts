@@ -1,5 +1,7 @@
 import { Payload } from "../components/ContactForm";
 import { v4 as uuid } from "uuid";
+import Joi from "joi";
+import { schema } from "../config/schemaValidation";
 
 export function Validate({ name, email, phoneNumber, message }: Payload) {
   const messages: { id: string; target: string; validationError: string }[] = [];
@@ -20,8 +22,14 @@ export function Validate({ name, email, phoneNumber, message }: Payload) {
 
   if (!email) {
     messages.push({ id: uuid(), target: "email", validationError: "E-mail é obrigatório" });
-  } else if (!email.includes("@")) {
-    messages.push({ id: uuid(), target: "email", validationError: "E-mail inválido" });
+  } else {
+    const { error } = schema.validate({ email });
+
+    if (error) {
+      const messagesSchemaValidation = error.details.map((item) => item.message)[0];
+
+      messages.push({ id: uuid(), target: "email", validationError: messagesSchemaValidation });
+    }
   }
 
   if (message.length < 12) {
