@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { schema } from "../config/schemaValidation";
 import { Validate } from "../services/validate";
 
 const initialValues = {
@@ -39,7 +38,7 @@ export function ContactForm() {
 
   const hasErrors = Validate({ name, email, phoneNumber, message });
 
-  async function submitForm(event: any) {
+  async function submitForm(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     setIsDirty(true);
@@ -53,13 +52,13 @@ export function ContactForm() {
       form.append("message", formState.message);
 
       try {
-        await fetch("https://webhook.site/24aa5305-ca8e-4647-9afb-70777a8a31a1", {
-          method: "post",
+        await fetch("https://webhook.site/be4ac6a5-7cd8-4fe7-8a54-5d5574e6184b", {
+          method: "POST",
           body: form,
-          mode: "cors",
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-          },
+          // mode: "cors",
+          // headers: {
+          //   "Access-Control-Allow-Origin": "*",
+          // },
         });
         alert("Formulário enviado com sucesso!");
         setFormState(initialValues);

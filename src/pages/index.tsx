@@ -40,7 +40,7 @@ export const pageQuery = graphql`
           title
           image {
             childImageSharp {
-              gatsbyImageData(width: 240, height: 135, formats: [WEBP, JPG], layout: CONSTRAINED, aspectRatio: 1)
+              gatsbyImageData(width: 250, height: 135, formats: [WEBP, JPG], layout: CONSTRAINED, aspectRatio: 1)
             }
           }
         }
