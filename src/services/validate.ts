@@ -4,6 +4,8 @@ import { v4 as uuid } from "uuid";
 export function Validate({ name, email, phoneNumber, message }: Payload) {
   const messages: { id: string; target: string; validationError: string }[] = [];
 
+  const PHONE_NUMBER_REGEX = /^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$/;
+
   if (!name) {
     messages.push({ id: uuid(), target: "name", validationError: "O nome é obrigatório" });
   }
@@ -38,7 +40,7 @@ export function Validate({ name, email, phoneNumber, message }: Payload) {
     });
   }
 
-  if (phoneNumber.length < 6) {
+  if (!PHONE_NUMBER_REGEX.test(phoneNumber)) {
     messages.push({
       id: uuid(),
       target: "phoneNumber",

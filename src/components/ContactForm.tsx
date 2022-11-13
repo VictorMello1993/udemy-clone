@@ -31,7 +31,7 @@ export function ContactForm() {
   const { name, email, phoneNumber, message } = formState;
 
   useEffect(() => {
-    if (name && email && phoneNumber && message) {
+    if (name || email || phoneNumber || message) {
       setIsDirty(true);
     }
   }, [name]);
