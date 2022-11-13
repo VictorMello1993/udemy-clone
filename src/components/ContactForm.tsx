@@ -59,10 +59,6 @@ export function ContactForm() {
         await fetch("https://webhook.site/6c31099c-7914-4842-8cb2-315e13de7148", {
           method: "POST",
           body: form,
-          mode: "cors",
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-          },
         });
         alert("Formulário enviado com sucesso!");
         setFormState(initialValues);
