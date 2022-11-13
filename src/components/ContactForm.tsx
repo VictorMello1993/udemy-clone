@@ -39,18 +39,19 @@ export function ContactForm() {
   const hasErrors = Validate({ name, email, phoneNumber, message });
 
   async function submitForm(event: any) {
-    try {
-      event.preventDefault();
-      setIsDirty(true);
+    event.preventDefault();
 
-      if (!hasErrors) {
-        const form = new FormData();
+    setIsDirty(true);
 
-        form.append("name", formState.name);
-        form.append("email", formState.email);
-        form.append("phone-number", formState.phoneNumber);
-        form.append("message", formState.message);
+    if (!hasErrors) {
+      const form = new FormData();
 
+      form.append("name", formState.name);
+      form.append("email", formState.email);
+      form.append("phone-number", formState.phoneNumber);
+      form.append("message", formState.message);
+
+      try {
         await fetch("https://webhook.site/24aa5305-ca8e-4647-9afb-70777a8a31a1", {
           method: "post",
           body: form,
@@ -59,13 +60,12 @@ export function ContactForm() {
             "Access-Control-Allow-Origin": "*",
           },
         });
+        alert("Formulário enviado com sucesso!");
+        setFormState(initialValues);
+      } catch (error) {
+        console.log(error);
+        alert("Houve um erro ao enviar o formulário");
       }
-
-      alert("Formulário enviado com sucesso!");
-      setFormState(initialValues);
-    } catch (error) {
-      console.log(error);
-      alert("Houve um erro ao enviar o formulário");
     }
   }
 
@@ -87,7 +87,7 @@ export function ContactForm() {
             {hasErrors
               .filter((validation) => validation.target === "name")
               .map((item) => (
-                <ErrorMessage key={item.id} message={item.validationError} />
+                <ErrorMessage key={item.id} message={isDirty ? item.validationError : null} />
               ))}
           </div>
         </div>
@@ -106,7 +106,7 @@ export function ContactForm() {
             {hasErrors
               .filter((validation) => validation.target === "email")
               .map((item) => (
-                <ErrorMessage key={item.id} message={item.validationError} />
+                <ErrorMessage key={item.id} message={isDirty ? item.validationError : null} />
               ))}
           </div>
 
@@ -123,7 +123,7 @@ export function ContactForm() {
             {hasErrors
               .filter((validation) => validation.target === "phoneNumber")
               .map((item) => (
-                <ErrorMessage key={item.id} message={item.validationError} />
+                <ErrorMessage key={item.id} message={isDirty ? item.validationError : null} />
               ))}
           </div>
         </div>
@@ -142,7 +142,7 @@ export function ContactForm() {
         {hasErrors
           .filter((validation) => validation.target === "message")
           .map((item) => (
-            <ErrorMessage key={item.id} message={item.validationError} />
+            <ErrorMessage key={item.id} message={isDirty ? item.validationError : null} />
           ))}
         <div className="row">
           <button type="submit" className="submit-button">
