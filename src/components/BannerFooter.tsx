@@ -7,9 +7,7 @@ export function BannerFooter() {
       <div className="teacher-section-description">
         <div className="teacher-section-heading">
           <div className="share-knowledge">Compartilhe seu conhecimento</div>
-          <div className="create-course-in-video">
-            Crie um curso em vídeo online, atraia alunos do mundo todo e ganhe dinheiro
-          </div>
+          <div className="create-course-in-video">Crie um curso em vídeo online, atraia alunos do mundo todo e ganhe dinheiro</div>
         </div>
         <div className="teacher-section-button">
           <a className="teach-at-udemy" href="/">
@@ -35,8 +33,7 @@ const BannerFooterElement = styled.div`
     line-height: 22px;
     font-weight: 700;
     font-size: 19px;
-    font-family: udemy sans, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif,
-      apple color emoji, segoe ui emoji, segoe ui symbol;
+    font-family: udemy sans, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
   }
 
   .create-course-in-video {
@@ -47,8 +44,7 @@ const BannerFooterElement = styled.div`
     font-weight: 400;
     line-height: 22px;
     font-size: 16px;
-    font-family: udemy sans, sf pro text, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial,
-      sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+    font-family: udemy sans, sf pro text, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
   }
 
   .teach-at-udemy {

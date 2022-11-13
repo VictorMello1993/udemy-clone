@@ -39,8 +39,6 @@ export function ContactForm() {
 
   const hasErrors = Validate({ name, email, phoneNumber, message });
 
-  console.log("hasErrors", hasErrors);
-
   async function submitForm(event: any) {
     event.preventDefault();
 
