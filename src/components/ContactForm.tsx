@@ -43,8 +43,6 @@ export function ContactForm() {
 
     setIsDirty(true);
 
-    console.log("hasErrors", hasErrors);
-
     if (hasErrors.length === 0) {
       const form = new FormData();
 
