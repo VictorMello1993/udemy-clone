@@ -18,8 +18,9 @@ export const schema = Joi.object({
     "string.max": "A mensagem deve ser preenchida até 256 caracteres",
   }),
   phoneNumber: Joi.string()
+    .allow("")
     .pattern(/^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$/)
     .messages({
-      "string.pattern": "Telefone inválido",
+      "string.pattern.base": "Telefone inválido",
     }),
 });

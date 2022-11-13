@@ -6,6 +6,7 @@ export function Validate({ name, email, phoneNumber, message }: Payload) {
   const messages: { id: string; target: string; validationError: string }[] = [];
 
   const { error } = schema.validate({ name, email, message, phoneNumber }, { abortEarly: false });
+  console.log("error", error);
 
   if (error) {
     const messagesSchemaValidation = error.details.map((item) => item);
