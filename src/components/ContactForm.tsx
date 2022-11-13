@@ -43,7 +43,9 @@ export function ContactForm() {
 
     setIsDirty(true);
 
-    if (!hasErrors) {
+    console.log("hasErrors", hasErrors);
+
+    if (hasErrors.length === 0) {
       const form = new FormData();
 
       form.append("name", formState.name);
@@ -51,14 +53,16 @@ export function ContactForm() {
       form.append("phone-number", formState.phoneNumber);
       form.append("message", formState.message);
 
+      console.log("Submission started");
+
       try {
-        await fetch("https://webhook.site/be4ac6a5-7cd8-4fe7-8a54-5d5574e6184b", {
+        await fetch("https://webhook.site/6c31099c-7914-4842-8cb2-315e13de7148", {
           method: "POST",
           body: form,
-          // mode: "cors",
-          // headers: {
-          //   "Access-Control-Allow-Origin": "*",
-          // },
+          mode: "cors",
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+          },
         });
         alert("Formulário enviado com sucesso!");
         setFormState(initialValues);

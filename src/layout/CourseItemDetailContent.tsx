@@ -10,7 +10,6 @@ export type CourseItemDetailContentProps = {
 
 export function CourseItemDetailContent({ data }: CourseItemDetailContentProps) {
   const { author, date, title, instructorName, description, price, ratingClassification, totalRate, image, authorImage } = data;
-  console.log("image", image);
 
   return (
     <MainContentElement>
