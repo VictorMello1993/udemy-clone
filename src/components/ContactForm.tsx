@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Validate } from "../services/validate";
 
@@ -26,13 +26,22 @@ function ErrorMessage({ message }: { message: string | null }) {
 
 export function ContactForm() {
   const [formState, setFormState] = useState(initialValues);
+  const [isDirty, setIsDirty] = useState(false);
+
   const { name, email, phoneNumber, message } = formState;
+
+  useEffect(() => {
+    if (name && email && phoneNumber && message) {
+      setIsDirty(true);
+    }
+  }, [name]);
 
   const hasErrors = Validate({ name, email, phoneNumber, message });
 
   async function submitForm(event: any) {
     try {
       event.preventDefault();
+      setIsDirty(true);
 
       if (!hasErrors) {
         const form = new FormData();
