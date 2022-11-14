@@ -54,10 +54,14 @@ export function ContactForm() {
       console.log("Submission started");
 
       try {
-        await fetch("https://webhook.site/6c31099c-7914-4842-8cb2-315e13de7148", {
+        await fetch("http://localhost:3001", {
           method: "POST",
-          body: form,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formState),
         });
+
         alert("Formulário enviado com sucesso!");
         setFormState(initialValues);
       } catch (error) {
