@@ -10,7 +10,9 @@ app.use(cors());
 app.post("/", async (req, res) => {
   try {
     console.log(req.body);
+
     const { ...values } = req.body;
+
     const result = await fetch("https://webhook.site/6c31099c-7914-4842-8cb2-315e13de7148", {
       method: "POST",
       body: JSON.stringify(req.body),
