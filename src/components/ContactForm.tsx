@@ -54,7 +54,7 @@ export function ContactForm() {
       console.log("Submission started");
 
       try {
-        await fetch("http://localhost:3001", {
+        await fetch("https://webhook.site/6c31099c-7914-4842-8cb2-315e13de7148", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
