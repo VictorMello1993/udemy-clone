@@ -75,7 +75,7 @@ export function ContactForm() {
   return (
     <ContactFormContainer>
       <h2 className="form-title">Entre em contato conosco</h2>
-      <form action="https://webhook.site/6c31099c-7914-4842-8cb2-315e13de7148" method="POST" className="contact-form" noValidate onSubmit={(event) => submitForm(event)}>
+      <form method="POST" className="contact-form" noValidate onSubmit={(event) => submitForm(event)}>
         <div className="row">
           <div className="field-container">
             <input
