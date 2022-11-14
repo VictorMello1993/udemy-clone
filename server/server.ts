@@ -9,16 +9,10 @@ app.use(cors());
 
 app.post("/", async (req, res) => {
   try {
-    console.log(req.body);
-
-    const { ...values } = req.body;
-
-    const result = await fetch("https://webhook.site/6c31099c-7914-4842-8cb2-315e13de7148", {
+    await fetch("https://webhook.site/6c31099c-7914-4842-8cb2-315e13de7148", {
       method: "POST",
       body: JSON.stringify(req.body),
     });
-
-    console.log(result);
 
     return res.json({ message: "Dados enviados ao servidor!" });
   } catch (error) {
@@ -26,4 +20,4 @@ app.post("/", async (req, res) => {
   }
 });
 
-app.listen(3001, () => console.log("server is running at 3001"));
+app.listen(3001, () => console.log("Server is running at 3001"));
