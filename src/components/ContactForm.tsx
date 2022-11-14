@@ -57,8 +57,10 @@ export function ContactForm() {
         // Para testar localmente: utilizar http://localhost:3001
         await fetch("https://webhook.site/6c31099c-7914-4842-8cb2-315e13de7148", {
           method: "POST",
+          mode: "cors",
           headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
           },
           body: JSON.stringify(formState),
         });
