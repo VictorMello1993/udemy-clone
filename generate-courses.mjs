@@ -110,7 +110,7 @@ async function createDirectories(courses) {
   return directoriesInfo;
 }
 
-(async function generatePosts() {
+(async function generateCourses() {
   console.log("Starting process...");
 
   const json = await fs.readFile("./data/course.json", "utf-8", (data) => {

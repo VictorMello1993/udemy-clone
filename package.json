@@ -14,7 +14,7 @@
     "serve": "gatsby serve --prefix-paths",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
-    "generate": "node generate-posts.mjs"
+    "generate": "node generate-courses.mjs"
   },
   "dependencies": {
     "@types/faker": "^6.6.9",
