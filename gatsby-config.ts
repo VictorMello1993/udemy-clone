@@ -1,13 +1,18 @@
 import type { GatsbyConfig } from "gatsby";
 
+const title = "Udemy clone";
+const pathPrefix = "/udemy-clone";
+
 const config: GatsbyConfig = {
   siteMetadata: {
     siteUrl: `https://victormello1993.github.io`,
+    description: "Um site réplica da Udemy",
+    title,
+    Image: `${pathPrefix}/icon.png`,
+    keywords: ["Udemy", "Clone", "Projeto", "Infnet"],
+    pathPrefix,
   },
-  pathPrefix: "/udemy-clone",
-  // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-  // If you use VSCode you can also use the GraphQL plugin
-  // Learn more at: https://gatsby.dev/graphql-typegen
+  pathPrefix,
   graphqlTypegen: true,
   plugins: [
     "gatsby-plugin-styled-components",
@@ -16,6 +21,19 @@ const config: GatsbyConfig = {
       options: {
         name: "data",
         path: `${__dirname}/data`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "Udemy clone",
+        short_name: "Udemy clone",
+        start_url: "/",
+        background_color: "#f0f0f0",
+        theme_color: "#fff",
+        display: "standalone",
+        icon: "src/images/icon.png",
+        crossOrigin: `use-credentials`,
       },
     },
     {
@@ -36,6 +54,8 @@ const config: GatsbyConfig = {
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    "gatsby-plugin-robots-txt",
+    "gatsby-plugin-sitemap",
   ],
 };
 

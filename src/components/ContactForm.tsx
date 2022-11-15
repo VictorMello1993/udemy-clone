@@ -9,12 +9,12 @@ const initialValues = {
   message: "",
 };
 
-export type Payload = {
+export interface Payload {
   name: string;
   email: string;
   phoneNumber: string;
   message: string;
-};
+}
 
 function ErrorMessage({ message }: { message: string | null }) {
   if (!message) {

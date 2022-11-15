@@ -1,4 +1,4 @@
-import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import React from "react";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import styled from "styled-components";

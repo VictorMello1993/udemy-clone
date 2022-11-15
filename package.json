@@ -14,8 +14,7 @@
     "serve": "gatsby serve --prefix-paths",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
-    "generate": "node generate-posts.mjs",
-    "dev:server": "ts-node-dev --transpile-only --ignore-watch node_modules --respawn  ./server/server.ts"
+    "generate": "node generate-posts.mjs"
   },
   "dependencies": {
     "@types/faker": "^6.6.9",
@@ -26,7 +25,10 @@
     "faker": "^6.6.6",
     "gatsby": "^4.24.5",
     "gatsby-plugin-image": "^2.24.0",
+    "gatsby-plugin-manifest": "4.24",
+    "gatsby-plugin-robots-txt": "^1.7.1",
     "gatsby-plugin-sharp": "^4.24.0",
+    "gatsby-plugin-sitemap": "5.24",
     "gatsby-plugin-styled-components": "^5.24.0",
     "gatsby-source-filesystem": "^4.24.0",
     "gatsby-transformer-json": "^4.24.0",
