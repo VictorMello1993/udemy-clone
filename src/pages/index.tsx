@@ -6,7 +6,7 @@ import { Layout } from "../layout/Layout";
 export default function Home(props: PageProps) {
   const items = (props.data as any).allMarkdownRemark.nodes.map(({ frontmatter, fields }: any) => ({
     ...frontmatter,
-    link: `/posts/${fields.slug}`,
+    link: `/course/${fields.slug}`,
     image: getImage(frontmatter.image.childImageSharp),
   }));
 
