@@ -74,7 +74,7 @@ jobs:
             ${{ runner.os }}-gatsby-build-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-      - name: Generate posts
+      - name: Generate courses
         run: ${{ steps.detect-package-manager.outputs.manager }} run generate
       - name: Build with Gatsby
         env:
